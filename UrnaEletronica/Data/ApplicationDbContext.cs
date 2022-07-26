@@ -19,7 +19,8 @@ namespace UrnaEletronica.Data
                 .Property(c => c.Nome).IsRequired();
             builder.Entity<Candidato>()
                 .Property(c => c.NomeVice).IsRequired();
-                
+
+            builder.Entity<Voto>();
         }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configuration) 

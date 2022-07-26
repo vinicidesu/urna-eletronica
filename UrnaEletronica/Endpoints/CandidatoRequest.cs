@@ -1,6 +1,6 @@
-﻿namespace UrnaEletronica.Domain
+﻿namespace UrnaEletronica.Endpoints
 {
-    public class Candidato
+    public class CandidatoRequest
     {
         public int CandidatoId { get; set; }
         public string Nome { get; set; }

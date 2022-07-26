@@ -1,4 +1,9 @@
+using UrnaEletronica.Data;
+using UrnaEletronica.Endpoints;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSqlServer<ApplicationDbContext>(builder.Configuration["ConnectionString:UrnaEletronica"]);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -12,5 +17,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapMethods(CandidatoPost.Template, CandidatoPost.Methods, CandidatoPost.Handler);
+app.MapMethods(CandidatoDelete.Template, CandidatoDelete.Methods, CandidatoDelete.Handle);
 
 app.Run();
